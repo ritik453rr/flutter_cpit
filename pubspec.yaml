@@ -38,6 +38,8 @@ dependencies:
   flutter_svg: ^2.2.0
   colorful_safe_area: ^1.0.0
   widget_and_text_animator: ^1.1.5
+  url_launcher: ^6.3.2
+  webview_flutter: ^4.13.0
 
 dev_dependencies:
   flutter_test:

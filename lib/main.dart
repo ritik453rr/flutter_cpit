@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       translations: AppLanguage(),
-      locale: const Locale('en', 'US'), // Set default locale
+      locale: const Locale('en', 'US'),
       getPages: AppPages.pages,
       initialRoute: AppRoutes.splash,
     );

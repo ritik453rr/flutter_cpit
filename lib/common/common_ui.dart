@@ -14,7 +14,7 @@ class CommonUi {
     return Image.asset(
       'assets/images/pngs/$imgName.png',
       fit: fit,
-      color: color,
+      color:color,
       width: width,
       height: height,
     );

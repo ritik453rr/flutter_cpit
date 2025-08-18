@@ -1,3 +1,4 @@
+import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:cpit/common/app_images.dart';
 import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/common/custom_appbar.dart';
@@ -14,10 +15,14 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return ColorfulSafeArea(
       top: false,
+      // top: ,
+      bottom: false,
+      bottomColor: Colors.black,
       child: Scaffold(
-        appBar: customAppBar(toolbarHeight: 0),
+        backgroundColor: Colors.black,
+        appBar: customAppBar(toolbarHeight: 0, backgroundColor: Colors.black),
         body: Center(
           child: WidgetAnimator(
             incomingEffect: WidgetTransitionEffects.incomingScaleUp(
@@ -26,7 +31,7 @@ class SplashView extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.all(30.0),
-              child: CommonUi.setPng(AppImages.pngCpit),
+              child: CommonUi.setPng(AppImages.pngCpit, color: Colors.white),
             ),
           ),
         ),
