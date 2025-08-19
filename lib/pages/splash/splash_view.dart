@@ -1,5 +1,5 @@
-import 'package:colorful_safe_area/colorful_safe_area.dart';
-import 'package:cpit/common/app_images.dart';
+import 'package:cpit/common/app_colors.dart';
+import 'package:cpit/common/app_fontsize.dart';
 import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/common/custom_appbar.dart';
 import 'package:cpit/pages/splash/splash_controller.dart';
@@ -15,23 +15,20 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ColorfulSafeArea(
-      top: false,
-      // top: ,
-      bottom: false,
-      bottomColor: Colors.black,
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        appBar: customAppBar(toolbarHeight: 0, backgroundColor: Colors.black),
-        body: Center(
-          child: WidgetAnimator(
-            incomingEffect: WidgetTransitionEffects.incomingScaleUp(
-              duration: const Duration(milliseconds: 1800),
-              curve: Curves.easeInOut,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: CommonUi.setPng(AppImages.pngCpit, color: Colors.white),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: customAppBar(toolbarHeight: 0, backgroundColor: AppColors.black),
+      body: Center(
+        child: WidgetAnimator(
+          incomingEffect: WidgetTransitionEffects.incomingScaleUp(
+            duration: const Duration(milliseconds: 1800),
+            curve: Curves.easeInOut,
+          ),
+          child: Text(
+            "CPIT EDUCATION",
+            style: CommonUi.customTextStyle(
+              color: AppColors.white,
+              fontSize: AppFontsize.font30,
             ),
           ),
         ),
