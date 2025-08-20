@@ -9,4 +9,5 @@ class AppColors {
   static const Color borderGrey = Color.fromRGBO(200, 200, 200, 1.0);
   static const Color focusedCharcoal = Color.fromRGBO(112, 112, 112, 1.0);
   static const Color blue = Colors.blue;
+  static const Color red = Colors.red;
 }

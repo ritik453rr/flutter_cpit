@@ -9,9 +9,10 @@ class SplashController extends GetxController {
     navigation();
   }
 
+  /// Method to navigate to new screen
   void navigation() {
     Future.delayed(const Duration(seconds: 2), () {
-      Get.offNamed(AppRoutes.login); 
+      Get.offNamed(AppRoutes.login);
     });
   }
 }

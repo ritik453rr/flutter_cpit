@@ -1,3 +1,4 @@
+/// A class that holds all string constants used in the app.
 class Strings {
   static const login = "login";
   static const pleaseEnterEmail="pleaseEnterEmail";

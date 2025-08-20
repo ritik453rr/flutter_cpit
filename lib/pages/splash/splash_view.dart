@@ -1,7 +1,9 @@
 import 'package:cpit/common/app_colors.dart';
+import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/app_fontsize.dart';
 import 'package:cpit/common/common_ui.dart';
-import 'package:cpit/common/custom_appbar.dart';
+import 'package:cpit/global.dart';
+import 'package:cpit/language/strings.dart';
 import 'package:cpit/pages/splash/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,9 +17,9 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Global.setSafeArea();
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: customAppBar(toolbarHeight: 0, backgroundColor: AppColors.black),
+      backgroundColor: Colors.white,
       body: Center(
         child: WidgetAnimator(
           incomingEffect: WidgetTransitionEffects.incomingScaleUp(
@@ -25,9 +27,10 @@ class SplashView extends StatelessWidget {
             curve: Curves.easeInOut,
           ),
           child: Text(
-            "CPIT EDUCATION",
+            Strings.cpitEducation.tr,
             style: CommonUi.customTextStyle(
-              color: AppColors.white,
+              color: AppColors.black,
+              fontFamily: AppFonts.medium,
               fontSize: AppFontsize.font30,
             ),
           ),

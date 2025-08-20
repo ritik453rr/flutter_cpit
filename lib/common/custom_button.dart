@@ -5,14 +5,14 @@ import 'package:cpit/global.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-///
+/// A customizable button with loading state and haptic feedback support.
 Widget customButton({
   double? height,
   double? width,
   String title = "Title",
   Color bgColor = Colors.blue,
   Color titleColor = AppColors.white,
-  double borderRadius = 12,
+  double borderRadius = Global.borderRadius,
   void Function()? onPressed,
   required RxBool isLoading,
 }) {
@@ -33,14 +33,7 @@ Widget customButton({
       child: Obx(
         () =>
             isLoading.value
-                ? SizedBox(
-                  height: 28,
-                  width: 28,
-                  child: CircularProgressIndicator(
-                    color: AppColors.white,
-                    strokeWidth: 2.5,
-                  ),
-                )
+                ? CommonUi.loadinIndicator()
                 : Text(
                   title,
                   style: CommonUi.customTextStyle(

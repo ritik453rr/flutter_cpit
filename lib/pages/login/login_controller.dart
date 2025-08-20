@@ -16,7 +16,7 @@ class LoginController extends GetxController {
 
   /// Method to validate email
   bool validateEmail() {
-    var email = emailController.text;
+    var email = emailController.text.trim();
     if (email.isEmpty) {
       emailError.value = Strings.pleaseEnterEmail.tr;
       return false;
@@ -39,6 +39,8 @@ class LoginController extends GetxController {
     return true;
   }
 
+/// Validates inputs and simulates a login process with a loading state.
+
   void login() {
     if (validateEmail() && validatePass()) {
       Global.hideKeyBoard();
@@ -49,15 +51,16 @@ class LoginController extends GetxController {
     }
   }
 
-  ///
+  /// Updates email error message based on input validation.
   void onChangeEmail(String val) {
     val.isEmpty
         ? emailError.value = Strings.pleaseEnterEmail.tr
         : emailError.value = null;
   }
 
+/// Updates password error message based on input validation.
   void onChangePass(String val) {
-    val.isEmpty
+    val.trim().isEmpty
         ? passwordError.value = Strings.pleaseEnterPasswrod.tr
         : passwordError.value = null;
   }

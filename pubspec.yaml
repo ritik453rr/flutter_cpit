@@ -36,10 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.7.2
   flutter_svg: ^2.2.0
-  colorful_safe_area: ^1.0.0
   widget_and_text_animator: ^1.1.5
   url_launcher: ^6.3.2
   webview_flutter: ^4.13.0
+  get_storage: ^2.1.1
 
 dev_dependencies:
   flutter_test:
