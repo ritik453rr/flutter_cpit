@@ -10,4 +10,15 @@ class AppColors {
   static const Color focusedCharcoal = Color.fromRGBO(112, 112, 112, 1.0);
   static const Color blue = Colors.blue;
   static const Color red = Colors.red;
+
+  /// Dark Theme Colors
+  static const Color dtEnableBorder = Colors.white38;
+  static const Color dtFocusBorder = Colors.white60;
+  static Color dtFillColor = Colors.grey.shade900;
+
+  ///Light Theme
+  static Color ltFillColor = Colors.grey.shade200;
+  static const ltTextFieldLabel = Colors.black87;
+  static Color ltEnableBorder = Colors.grey.shade300;
+  static Color ltFocusBorder = Colors.grey.shade400;
 }

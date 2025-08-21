@@ -41,7 +41,7 @@ class CommonUi {
 
   /// Custom Text Style
   static TextStyle? customTextStyle({
-    Color color = AppColors.black,
+    Color? color,
     double fontSize = 14,
     String fontFamily = AppFonts.regular,
   }) {

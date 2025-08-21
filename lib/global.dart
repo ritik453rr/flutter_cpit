@@ -24,7 +24,7 @@ class Global {
     }
   }
 
-/// Updates app locale and saves language and country codes locally.
+  /// Updates app locale and saves language and country codes locally.
   static void updateLocal({
     required String langCode,
     required String countryCode,
@@ -40,13 +40,14 @@ class Global {
   }
 
   /// Set safe area color in view
-  static void setSafeArea({bool isLight = true}) {
+  static void setSafeArea({required bool isDark}) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        systemNavigationBarColor: isLight ? AppColors.white : AppColors.black,
+        systemNavigationBarColor: isDark ?
+        AppColors.black: AppColors.white,
         systemNavigationBarIconBrightness:
-            isLight ? Brightness.dark : Brightness.light,
-        statusBarIconBrightness: isLight ? Brightness.dark : Brightness.light,
+            isDark ? Brightness.light:Brightness.dark,
+        statusBarIconBrightness: isDark ?Brightness.light: Brightness.dark,
       ),
     );
   }

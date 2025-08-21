@@ -1,6 +1,7 @@
 import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/app_fontsize.dart';
+import 'package:cpit/common/app_storage.dart';
 import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/global.dart';
 import 'package:cpit/language/strings.dart';
@@ -17,9 +18,8 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Global.setSafeArea();
+    Global.setSafeArea(isDark: AppStorage.isDarkTheme());
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
         child: WidgetAnimator(
           incomingEffect: WidgetTransitionEffects.incomingScaleUp(
@@ -29,7 +29,6 @@ class SplashView extends StatelessWidget {
           child: Text(
             Strings.cpitEducation.tr,
             style: CommonUi.customTextStyle(
-              color: AppColors.black,
               fontFamily: AppFonts.medium,
               fontSize: AppFontsize.font30,
             ),

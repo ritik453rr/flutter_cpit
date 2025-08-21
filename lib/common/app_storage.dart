@@ -5,28 +5,38 @@ class AppStorage {
   static var storage = GetStorage();
 
   ///Keys
-  static const String langCode = "langCode";
-  static const String countryCode = "countryCode";
+  static const String _langCode = "langCode";
+  static const String _countryCode = "countryCode";
+  static const String _isDarkMode = "isDarkMode";
+
+  static void setThemeMode({required bool isDark}) {
+    storage.write(_isDarkMode, isDark);
+  }
+
+  ///
+  static bool isDarkTheme() {
+    return storage.read(_isDarkMode) ?? false;
+  }
 
   /// Saves the language code locally.
   static void setLangCode({required String code}) {
-    storage.write(langCode, code);
+    storage.write(_langCode, code);
   }
 
   /// Saves the country code locally.
 
   static void setCountryCode({required String code}) {
-    storage.write(countryCode, code);
+    storage.write(_countryCode, code);
   }
 
   /// Retrieves the saved language code or returns 'en' if none found.
   static String getLangCode() {
-    return storage.read(langCode) ?? "en";
+    return storage.read(_langCode) ?? "en";
   }
 
   /// Retrieves the saved country code or returns 'US' if none found.
   static String getCountryCode() {
-    return storage.read(countryCode) ?? "US";
+    return storage.read(_countryCode) ?? "US";
   }
 
   /// Method to clear storage

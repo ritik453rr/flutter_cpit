@@ -1,5 +1,5 @@
-import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_storage.dart';
+import 'package:cpit/common/app_theme.dart';
 import 'package:cpit/language/app_language.dart';
 import 'package:cpit/routing/app_pages.dart';
 import 'package:cpit/routing/app_routes.dart';
@@ -25,21 +25,15 @@ class MyApp extends StatelessWidget {
       translations: AppLanguage(),
       locale: Locale(
         AppStorage.getLangCode(),
-        AppStorage.countryCode,
+        AppStorage.getCountryCode(),
       ), // Default locale
       fallbackLocale: Locale(
         AppStorage.getLangCode(),
-        AppStorage.countryCode,
+        AppStorage.getCountryCode(),
       ), // Fallback if device locale not supported
-
-      theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.white,
-        textSelectionTheme: TextSelectionThemeData(
-          cursorColor: AppColors.black,
-          selectionColor: AppColors.black.withValues(alpha: 0.15),
-          selectionHandleColor: AppColors.black,
-        ),
-      ),
+      theme: AppTheme.lightTheme(),
+      darkTheme: AppTheme.darkTheme(),
+      themeMode: AppStorage.isDarkTheme() ? ThemeMode.dark : ThemeMode.light,
     );
   }
 }
