@@ -8,12 +8,24 @@ class AppStorage {
   static const String _langCode = "langCode";
   static const String _countryCode = "countryCode";
   static const String _isDarkMode = "isDarkMode";
+  static const String _isLogin = "islogin";
 
+  /// Method to check is user logged in
+  static bool isLogin() {
+    return storage.read(_isLogin) ?? false;
+  }
+
+  /// Method to set login status
+  static void setLoginStatus({required bool status}) {
+    storage.write(_isLogin, status);
+  }
+
+  /// Method to set theme mode
   static void setThemeMode({required bool isDark}) {
     storage.write(_isDarkMode, isDark);
   }
 
-  ///
+  /// Methdo to check is dark theme or not
   static bool isDarkTheme() {
     return storage.read(_isDarkMode) ?? false;
   }
@@ -24,7 +36,6 @@ class AppStorage {
   }
 
   /// Saves the country code locally.
-
   static void setCountryCode({required String code}) {
     storage.write(_countryCode, code);
   }

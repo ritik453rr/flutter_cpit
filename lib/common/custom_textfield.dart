@@ -1,5 +1,3 @@
-import 'package:cpit/common/app_colors.dart';
-import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/global.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

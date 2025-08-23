@@ -22,19 +22,25 @@ class AppTheme {
     return ThemeData(
       brightness: Brightness.light,
       scaffoldBackgroundColor: AppColors.white,
-
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.white,
-        elevation: 0,
+      splashFactory: NoSplash.splashFactory,
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: AppColors.white,
+        selectedItemColor: AppColors.black,
+        unselectedItemColor: Colors.grey[500],
       ),
-
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppColors.white,
+        foregroundColor: AppColors.white,
+        surfaceTintColor: AppColors.white,
+        titleTextStyle: CommonUi.customTextStyle(color: AppColors.black),
+        actionsIconTheme: IconThemeData(color: AppColors.black),
+      ),
       textTheme: const TextTheme(
         bodyLarge: TextStyle(color: Colors.black),
         bodyMedium: TextStyle(color: Colors.black),
       ),
 
-      iconTheme: const IconThemeData(color: Colors.black87),
+      iconTheme: const IconThemeData(color: AppColors.black),
 
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: Colors.blue,
@@ -79,10 +85,19 @@ class AppTheme {
     return ThemeData(
       brightness: Brightness.dark,
       scaffoldBackgroundColor: Colors.black,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
-        elevation: 0,
+      splashFactory: NoSplash.splashFactory,
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppColors.black,
+        foregroundColor: AppColors.black,
+        surfaceTintColor: AppColors.black,
+        titleTextStyle: CommonUi.customTextStyle(color: AppColors.white),
+                actionsIconTheme: IconThemeData(color: AppColors.white),
+
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: AppColors.black,
+        selectedItemColor: AppColors.white,
+        unselectedItemColor: Colors.grey[600],
       ),
 
       textTheme: const TextTheme(
@@ -90,8 +105,7 @@ class AppTheme {
         bodyMedium: TextStyle(color: Colors.white),
       ),
 
-      iconTheme: const IconThemeData(color: Colors.white70),
-
+      iconTheme: IconThemeData(color: Colors.white),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,

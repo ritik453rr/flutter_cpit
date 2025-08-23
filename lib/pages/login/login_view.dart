@@ -1,7 +1,4 @@
-import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_fonts.dart';
-import 'package:cpit/common/app_storage.dart';
-import 'package:cpit/common/app_theme.dart';
 import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/common/custom_button.dart';
 import 'package:cpit/common/custom_textfield.dart';
@@ -18,7 +15,6 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Global.setSafeArea(isDark: AppStorage.isDarkTheme());
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
@@ -35,7 +31,7 @@ class LoginView extends StatelessWidget {
                 children: [
                   SizedBox(height: 150),
                   Text(
-                    Strings.cpitEducation.tr,
+                    Strings.splashTitle.tr,
                     style: CommonUi.customTextStyle(
                       // color: AppColors.black,
                       fontFamily: AppFonts.medium,

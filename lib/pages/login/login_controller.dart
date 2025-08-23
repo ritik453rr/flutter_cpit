@@ -1,5 +1,7 @@
+import 'package:cpit/common/app_storage.dart';
 import 'package:cpit/global.dart';
 import 'package:cpit/language/strings.dart';
+import 'package:cpit/routing/app_routes.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -20,9 +22,8 @@ class LoginController extends GetxController {
     if (email.isEmpty) {
       emailError.value = Strings.pleaseEnterEmail.tr;
       return false;
-    } else if (!RegExp(
-      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z][a-zA-Z0-9.-]*\.[a-zA-Z]{2,}$',
-    ).hasMatch(email)) {
+    } 
+    if (!Global.isValidEmail(email)) {
       emailError.value = Strings.enterValidEmail.tr;
       return false;
     }
@@ -39,14 +40,15 @@ class LoginController extends GetxController {
     return true;
   }
 
-/// Validates inputs and simulates a login process with a loading state.
-
+  /// Validates inputs and simulates a login process with a loading state.
   void login() {
     if (validateEmail() && validatePass()) {
       Global.hideKeyBoard();
       isLoading.value = true;
       Future.delayed(Duration(seconds: 2), () {
         isLoading.value = false;
+        AppStorage.setLoginStatus(status: true);
+        Get.offAllNamed(AppRoutes.dashboard);
       });
     }
   }
@@ -58,7 +60,7 @@ class LoginController extends GetxController {
         : emailError.value = null;
   }
 
-/// Updates password error message based on input validation.
+  /// Updates password error message based on input validation.
   void onChangePass(String val) {
     val.trim().isEmpty
         ? passwordError.value = Strings.pleaseEnterPasswrod.tr

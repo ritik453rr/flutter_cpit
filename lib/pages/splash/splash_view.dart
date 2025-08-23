@@ -1,9 +1,6 @@
-import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/app_fontsize.dart';
-import 'package:cpit/common/app_storage.dart';
 import 'package:cpit/common/common_ui.dart';
-import 'package:cpit/global.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:cpit/pages/splash/splash_controller.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +15,6 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Global.setSafeArea(isDark: AppStorage.isDarkTheme());
     return Scaffold(
       body: Center(
         child: WidgetAnimator(
@@ -27,7 +23,7 @@ class SplashView extends StatelessWidget {
             curve: Curves.easeInOut,
           ),
           child: Text(
-            Strings.cpitEducation.tr,
+            Strings.splashTitle.tr,
             style: CommonUi.customTextStyle(
               fontFamily: AppFonts.medium,
               fontSize: AppFontsize.font30,

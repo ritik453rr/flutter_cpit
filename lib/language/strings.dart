@@ -1,7 +1,7 @@
 /// A class that holds all string constants used in the app.
 class Strings {
   /// Splash Page
-  static const cpitEducation = "cpitEducation";
+  static const splashTitle = "cpitEducation";
 
   /// Login Page
   static const login = "login";
@@ -11,4 +11,10 @@ class Strings {
   static const email = "email";
   static const password = "password";
   static const forgotPassword = "forgotPassword";
+
+  /// Home Page
+  static const dashTitle = "dashTitle";
+
+/// Settings Page
+  static var settings="settings";
 }

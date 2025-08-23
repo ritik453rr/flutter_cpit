@@ -1,3 +1,4 @@
+import 'package:cpit/common/app_storage.dart';
 import 'package:cpit/routing/app_routes.dart';
 import 'package:get/get.dart';
 
@@ -12,7 +13,9 @@ class SplashController extends GetxController {
   /// Method to navigate to new screen
   void navigation() {
     Future.delayed(const Duration(seconds: 2), () {
-      Get.offNamed(AppRoutes.login);
+      AppStorage.isLogin()
+          ? Get.offNamed(AppRoutes.dashboard)
+          : Get.offNamed(AppRoutes.login);
     });
   }
 }

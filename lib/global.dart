@@ -40,15 +40,22 @@ class Global {
   }
 
   /// Set safe area color in view
+  /// Set safe area color in view
   static void setSafeArea({required bool isDark}) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        systemNavigationBarColor: isDark ?
-        AppColors.black: AppColors.white,
+        systemNavigationBarColor: isDark ? AppColors.black : AppColors.white,
         systemNavigationBarIconBrightness:
-            isDark ? Brightness.light:Brightness.dark,
-        statusBarIconBrightness: isDark ?Brightness.light: Brightness.dark,
+            isDark ? Brightness.light : Brightness.dark,
+        statusBarIconBrightness: isDark ? Brightness.light : Brightness.dark,
       ),
     );
+  }
+
+ /// Method to change is valid email
+  static bool isValidEmail(String email) {
+    return RegExp(
+      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z][a-zA-Z0-9.-]*\.[a-zA-Z]{2,}$',
+    ).hasMatch(email);
   }
 }

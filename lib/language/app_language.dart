@@ -7,7 +7,7 @@ class AppLanguage extends Translations {
   Map<String, Map<String, String>> get keys => {
     'en_US': {
       /// Splash Page
-      Strings.cpitEducation: "CPIT EDUCATION",
+      Strings.splashTitle: "CPIT EDUCATION",
 
       ///Login Page
       Strings.login: 'Login',
@@ -17,6 +17,10 @@ class AppLanguage extends Translations {
       Strings.email: "Email",
       Strings.password: "Password",
       Strings.forgotPassword: "Forgot password?",
+      /// Home Page
+      Strings.dashTitle: "Cpit Education",
+      /// Settings Page
+      Strings.settings:"Settings",
     },
     'hi_IN': {
       Strings.login: 'लॉगिन',
@@ -26,7 +30,7 @@ class AppLanguage extends Translations {
       Strings.email: "ईमेल",
       Strings.password: "पासवर्ड",
       Strings.forgotPassword: "पासवर्ड भूल गए?",
-      Strings.cpitEducation: "सीपीआईटी शिक्षा",
+      Strings.splashTitle: "सीपीआईटी शिक्षा",
     },
   };
 }

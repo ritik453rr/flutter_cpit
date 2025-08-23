@@ -1,5 +1,6 @@
 import 'package:cpit/common/app_storage.dart';
 import 'package:cpit/common/app_theme.dart';
+import 'package:cpit/global.dart';
 import 'package:cpit/language/app_language.dart';
 import 'package:cpit/routing/app_pages.dart';
 import 'package:cpit/routing/app_routes.dart';
@@ -9,6 +10,7 @@ import 'package:get_storage/get_storage.dart';
 
 void main() async {
   await GetStorage.init();
+  Global.setSafeArea(isDark: AppStorage.isDarkTheme());
   runApp(const MyApp());
 }
 
