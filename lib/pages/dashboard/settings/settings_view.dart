@@ -1,6 +1,11 @@
+import 'package:cpit/common/app_fonts.dart';
+import 'package:cpit/common/app_fontsize.dart';
+import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/common/custom_appbar.dart';
+import 'package:cpit/global.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:cpit/pages/dashboard/settings/settings_controller.dart';
+import 'package:cpit/pages/dashboard/settings/widgets/settings_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +25,23 @@ class SettingsView extends StatelessWidget {
         },
       ),
 
-      body: Center(child: Text(Strings.settings.tr)),
+      body: ListView.builder(
+        padding: EdgeInsets.symmetric(
+          horizontal: Global.hzPadding,
+          vertical: 30,
+        ),
+        itemCount: controller.settings.length,
+        itemBuilder: (context, index) {
+          final item = controller.settings[index];
+          return settingItem(
+            icon: item.icon,
+            title: item.title,
+            suffixIcon: item.suffixIcon,
+          );
+    
+       
+        },
+      ),
     );
   }
 }

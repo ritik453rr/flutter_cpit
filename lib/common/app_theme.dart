@@ -2,6 +2,7 @@ import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_fontsize.dart';
 import 'package:cpit/common/app_storage.dart';
 import 'package:cpit/common/common_ui.dart';
+import 'package:cpit/common/restart_app.dart';
 import 'package:cpit/global.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,14 +16,16 @@ class AppTheme {
     Global.setSafeArea(isDark: newIsDark);
     AppStorage.setThemeMode(isDark: newIsDark);
     Get.changeThemeMode(newIsDark ? ThemeMode.dark : ThemeMode.light);
+    RestartApp.restartApp(Get.context!);
   }
 
   /// Returns the light theme configuration.
   static ThemeData lightTheme() {
     return ThemeData(
       brightness: Brightness.light,
+      cardColor: Colors.grey[200],
       scaffoldBackgroundColor: AppColors.white,
-      splashFactory: NoSplash.splashFactory,
+      // splashFactory: NoSplash.splashFactory,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: AppColors.white,
         selectedItemColor: AppColors.black,
@@ -40,7 +43,7 @@ class AppTheme {
         bodyMedium: TextStyle(color: Colors.black),
       ),
 
-      iconTheme: const IconThemeData(color: AppColors.black),
+      iconTheme: IconThemeData(color: Colors.black),
 
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: Colors.blue,
@@ -84,6 +87,8 @@ class AppTheme {
   static ThemeData darkTheme() {
     return ThemeData(
       brightness: Brightness.dark,
+      cardColor: Colors.grey.withValues(alpha: 0.09),
+
       scaffoldBackgroundColor: Colors.black,
       splashFactory: NoSplash.splashFactory,
       appBarTheme: AppBarTheme(
@@ -91,8 +96,7 @@ class AppTheme {
         foregroundColor: AppColors.black,
         surfaceTintColor: AppColors.black,
         titleTextStyle: CommonUi.customTextStyle(color: AppColors.white),
-                actionsIconTheme: IconThemeData(color: AppColors.white),
-
+        actionsIconTheme: IconThemeData(color: AppColors.white),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: AppColors.black,

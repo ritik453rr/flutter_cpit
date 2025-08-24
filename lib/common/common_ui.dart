@@ -48,6 +48,15 @@ class CommonUi {
     return TextStyle(fontFamily: fontFamily, color: color, fontSize: fontSize);
   }
 
+
+/// Method to return round border decoration
+  static BoxDecoration roundDecoration({Color color=Colors.grey,double borderRadius=12}) {
+    return BoxDecoration(
+      color: color,
+      borderRadius: BorderRadius.circular(borderRadius)
+    );
+  }
+
   /// Custom TextButton
   static Widget textButton({
     required String title,
@@ -78,7 +87,7 @@ class CommonUi {
     );
   }
 
- /// Returns a customizable loading spinner widget.
+  /// Returns a customizable loading spinner widget.
   static Widget loadinIndicator({
     double height = 25,
     double width = 25,
