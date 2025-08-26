@@ -11,21 +11,22 @@ class AppColors {
   static const Color focusedCharcoal = Color.fromRGBO(112, 112, 112, 1.0);
   static const Color blue = Colors.blue;
   static const Color red = Colors.red;
-  static const Color unselectIcon = Color.fromRGBO(
-    204,
-    204,
-    204,
-    1,
-  ); // RGB(204, 204, 204)
+  static const Color unselectIcon = Color.fromRGBO(204, 204, 204, 1);
 
   /// Dark Theme Colors
   static const Color dtEnableBorder = Colors.white38;
   static const Color dtFocusBorder = Colors.white60;
   static Color dtFillColor = Colors.grey.shade900;
+  static const Color dtSplash = Colors.white10;
+  static Color dtTile = Colors.grey.withValues(alpha: 0.09);
+  static Color dtDialog = Colors.grey.shade900;
+  static  Color dtUnselectNav = Colors.grey[600]!;
 
   ///Light Theme
   static Color ltFillColor = Colors.grey.shade200;
   static const ltTextFieldLabel = Colors.black87;
   static Color ltEnableBorder = Colors.grey.shade300;
   static Color ltFocusBorder = Colors.grey.shade400;
+  static const ltSplash = Colors.black12;
+  static Color ltTile = Colors.grey[200]!;
 }

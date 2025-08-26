@@ -40,6 +40,7 @@ dependencies:
   url_launcher: ^6.3.2
   webview_flutter: ^4.13.0
   get_storage: ^2.1.1
+  language_picker: ^0.4.5
 
 dev_dependencies:
   flutter_test:

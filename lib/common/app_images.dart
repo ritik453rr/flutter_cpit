@@ -9,4 +9,5 @@ class AppImages {
   /// Icons
   static const iconHome = Icons.home;
   static const iconSettings = Icons.settings;
+  static const iconForwardArrowIos = Icons.arrow_forward_ios;
 }

@@ -50,7 +50,7 @@ class CommonUi {
 
 
 /// Method to return round border decoration
-  static BoxDecoration roundDecoration({Color color=Colors.grey,double borderRadius=12}) {
+  static BoxDecoration roundDecoration({Color? color,double borderRadius=12}) {
     return BoxDecoration(
       color: color,
       borderRadius: BorderRadius.circular(borderRadius)

@@ -1,6 +1,3 @@
-import 'package:cpit/common/app_fonts.dart';
-import 'package:cpit/common/app_fontsize.dart';
-import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/common/custom_appbar.dart';
 import 'package:cpit/global.dart';
 import 'package:cpit/language/strings.dart';
@@ -16,18 +13,11 @@ class SettingsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(
-        title: Strings.settings.tr,
-        centerTitle: false,
-        actionIcon1: Icons.logout,
-        onTapAction1: () {
-          controller.logout();
-        },
-      ),
+      appBar: customAppBar(title: Strings.settings.tr, centerTitle: false),
 
       body: ListView.builder(
         padding: EdgeInsets.symmetric(
-          horizontal: Global.hzPadding,
+          horizontal:Global.hzPadding,
           vertical: 30,
         ),
         itemCount: controller.settings.length,
@@ -35,11 +25,12 @@ class SettingsView extends StatelessWidget {
           final item = controller.settings[index];
           return settingItem(
             icon: item.icon,
-            title: item.title,
+            title: item.title.tr,
             suffixIcon: item.suffixIcon,
+            onTap: () {
+              controller.onTapItem(index);
+            },
           );
-    
-       
         },
       ),
     );

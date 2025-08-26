@@ -1,5 +1,6 @@
 import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_storage.dart';
+import 'package:cpit/common/restart_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -32,6 +33,7 @@ class Global {
     Get.updateLocale(Locale(langCode, countryCode));
     AppStorage.setLangCode(code: langCode);
     AppStorage.setCountryCode(code: countryCode);
+    //  RestartApp.restartApp(Get.context!);
   }
 
   // Hides the keyboard by removing focus from the current input field
@@ -39,7 +41,6 @@ class Global {
     FocusManager.instance.primaryFocus?.unfocus();
   }
 
-  /// Set safe area color in view
   /// Set safe area color in view
   static void setSafeArea({required bool isDark}) {
     SystemChrome.setSystemUIOverlayStyle(

@@ -41,7 +41,7 @@ class DashboardView extends StatelessWidget {
       body: Obx(
         () => IndexedStack(
           index: controller.currentIndex.value,
-          children:[HomeView(), SettingsView()],
+          children: [HomeView(), SettingsView()],
         ),
       ),
     );

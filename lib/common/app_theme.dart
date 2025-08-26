@@ -9,13 +9,10 @@ import 'package:get/get.dart';
 
 /// Provides app-wide theme data and theme switching functionality.
 class AppTheme {
-  /// Toggles the app theme between light and dark modes.
-  static void changeTheme() {
-    final isDark = AppStorage.isDarkTheme();
-    final newIsDark = !isDark;
-    Global.setSafeArea(isDark: newIsDark);
-    AppStorage.setThemeMode(isDark: newIsDark);
-    Get.changeThemeMode(newIsDark ? ThemeMode.dark : ThemeMode.light);
+  /// Method to change app theme.
+  static void changeTheme({required bool isDark}) {
+    Global.setSafeArea(isDark: isDark);
+    AppStorage.setThemeMode(isDark: isDark);
     RestartApp.restartApp(Get.context!);
   }
 
@@ -23,9 +20,15 @@ class AppTheme {
   static ThemeData lightTheme() {
     return ThemeData(
       brightness: Brightness.light,
-      cardColor: Colors.grey[200],
+      primaryColor: AppColors.ltSplash,
+      cardColor: AppColors.ltTile,
+      dialogTheme: DialogThemeData(backgroundColor: AppColors.white),
       scaffoldBackgroundColor: AppColors.white,
-      // splashFactory: NoSplash.splashFactory,
+      splashColor: Colors.transparent,
+      textSelectionTheme: TextSelectionThemeData(cursorColor: AppColors.black),
+      radioTheme: RadioThemeData(
+        fillColor: MaterialStateProperty.all<Color>(AppColors.black),
+      ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: AppColors.white,
         selectedItemColor: AppColors.black,
@@ -39,16 +42,11 @@ class AppTheme {
         actionsIconTheme: IconThemeData(color: AppColors.black),
       ),
       textTheme: const TextTheme(
-        bodyLarge: TextStyle(color: Colors.black),
-        bodyMedium: TextStyle(color: Colors.black),
+        bodyLarge: TextStyle(color: AppColors.black),
+        bodyMedium: TextStyle(color: AppColors.black),
       ),
 
-      iconTheme: IconThemeData(color: Colors.black),
-
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.white,
-      ),
+      iconTheme: IconThemeData(color: AppColors.black),
 
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -87,10 +85,16 @@ class AppTheme {
   static ThemeData darkTheme() {
     return ThemeData(
       brightness: Brightness.dark,
-      cardColor: Colors.grey.withValues(alpha: 0.09),
-
-      scaffoldBackgroundColor: Colors.black,
-      splashFactory: NoSplash.splashFactory,
+      cardColor: AppColors.dtTile,
+      primaryColor: AppColors.dtSplash,
+      scaffoldBackgroundColor: AppColors.black,
+      splashFactory: InkRipple.splashFactory,
+      splashColor: Colors.transparent,
+      textSelectionTheme: TextSelectionThemeData(cursorColor: AppColors.white),
+      dialogTheme: DialogThemeData(backgroundColor: AppColors.dtDialog),
+      radioTheme: RadioThemeData(
+        fillColor: MaterialStateProperty.all<Color>(AppColors.white),
+      ),
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.black,
         foregroundColor: AppColors.black,
@@ -101,20 +105,15 @@ class AppTheme {
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: AppColors.black,
         selectedItemColor: AppColors.white,
-        unselectedItemColor: Colors.grey[600],
+        unselectedItemColor: AppColors.dtUnselectNav,
       ),
 
       textTheme: const TextTheme(
-        bodyLarge: TextStyle(color: Colors.white),
-        bodyMedium: TextStyle(color: Colors.white),
+        bodyLarge: TextStyle(color: AppColors.white),
+        bodyMedium: TextStyle(color: AppColors.white),
       ),
 
-      iconTheme: IconThemeData(color: Colors.white),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: Colors.white,
-      ),
-
+      iconTheme: IconThemeData(color: AppColors.white),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         errorStyle: TextStyle(color: Colors.redAccent),

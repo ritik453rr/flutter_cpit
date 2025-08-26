@@ -42,17 +42,7 @@ PreferredSizeWidget? customAppBar({
             icon: Icon(actionIcon1),
           ),
 
-      IconButton(
-        visualDensity: VisualDensity.compact,
-        padding: EdgeInsets.zero,
-        onPressed: () {
-          Global.hapticFeedback();
-          AppTheme.changeTheme();
-          // Global.setSafeArea(isDark: AppStorage.isDarkTheme());
-        },
-
-        icon: Icon(Icons.light),
-      ),
+     
     ],
   );
 }
