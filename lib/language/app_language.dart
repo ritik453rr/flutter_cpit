@@ -20,6 +20,7 @@ class AppLanguage extends Translations {
 
       /// Home Page
       Strings.dashTitle: "Cpit Education",
+      Strings.search:"Search",
 
       /// Settings Page
       Strings.settings: "Settings",

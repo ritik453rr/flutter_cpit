@@ -1,6 +1,5 @@
 import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_storage.dart';
-import 'package:cpit/common/restart_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -9,7 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 /// Global utility class for common functions
 class Global {
   static const hzPadding = 20.0;
-  static const borderRadius = 10.0;
+  static const fieldRadius = 12.0;
 
   /// Opens a URL in the default web browser
   static void openLink(String url) {
@@ -53,7 +52,7 @@ class Global {
     );
   }
 
- /// Method to change is valid email
+  /// Method to change is valid email
   static bool isValidEmail(String email) {
     return RegExp(
       r'^[a-zA-Z0-9._%+-]+@[a-zA-Z][a-zA-Z0-9.-]*\.[a-zA-Z]{2,}$',

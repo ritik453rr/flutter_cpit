@@ -11,11 +11,12 @@ PreferredSizeWidget? customAppBar({
   bool centerTitle = true,
   IconData? actionIcon1,
   void Function()? onTapAction1,
+  bool showBottomBorder = false,
 }) {
   return AppBar(
     centerTitle: centerTitle,
     actionsPadding: EdgeInsets.only(right: Global.hzPadding),
-    shape: Border(
+    shape: !showBottomBorder?null: Border(
       bottom: BorderSide(color: AppColors.grey.withValues(alpha: 0.4)),
     ),
     title:
@@ -41,8 +42,6 @@ PreferredSizeWidget? customAppBar({
 
             icon: Icon(actionIcon1),
           ),
-
-     
     ],
   );
 }

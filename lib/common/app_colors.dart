@@ -16,17 +16,31 @@ class AppColors {
   /// Dark Theme Colors
   static const Color dtEnableBorder = Colors.white38;
   static const Color dtFocusBorder = Colors.white60;
-  static Color dtFillColor = Colors.grey.shade900;
+  static Color dtField = Colors.grey.shade900;
   static const Color dtSplash = Colors.white10;
   static Color dtTile = Colors.grey.withValues(alpha: 0.09);
   static Color dtDialog = Colors.grey.shade900;
-  static  Color dtUnselectNav = Colors.grey[600]!;
+  static Color dtUnselectNav = Colors.grey[600]!;
+  static const Color dtFieldIcon = Colors.grey;
+  static const Color dtFieldHint = Colors.white54;
+  static const Color dtCursor = AppColors.white;
+  static Color dtSelectionHandle = Colors.grey[700]!;
+  static  Color dtCardColor = Colors.grey.shade900;
 
   ///Light Theme
-  static Color ltFillColor = Colors.grey.shade200;
-  static const ltTextFieldLabel = Colors.black87;
-  static Color ltEnableBorder = Colors.grey.shade300;
-  static Color ltFocusBorder = Colors.grey.shade400;
+  static Color ltFieldColor = Colors.grey.shade200;
+  static const ltFieldLabel = Colors.black87;
+  static Color ltFieldEnableBorder = Colors.grey.shade300;
+  static Color ltFieldFocusBorder = Colors.grey.shade400;
   static const ltSplash = Colors.black12;
   static Color ltTile = Colors.grey[200]!;
+  static const ltFieldErrorBord = AppColors.red;
+  static const ltFloatingLabel = AppColors.black;
+  static const ltFieldErrorBorder = Colors.red;
+  static const ltFieldIcon = Colors.black38;
+  static Color ltFieldHint = Colors.grey[800]!;
+  static const ltCursor = AppColors.black;
+  static const ltSelectionHandle = AppColors.black;
+  static const ltDialog = AppColors.white;
+  static Color ltCardColor = Colors.grey.shade200;
 }

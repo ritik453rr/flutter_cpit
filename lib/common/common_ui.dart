@@ -61,13 +61,14 @@ class CommonUi {
   static Widget textButton({
     required String title,
     void Function()? onPressed,
+    double  borderRadius=12.0,
   }) {
     return TextButton(
       style: TextButton.styleFrom(
         visualDensity: VisualDensity.compact,
         padding: EdgeInsets.only(right: 0, left: 6),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(Global.borderRadius),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
 
         overlayColor: Colors.grey.withValues(alpha: 0.1),

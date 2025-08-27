@@ -12,7 +12,7 @@ Widget customButton({
   String title = "Title",
   Color bgColor = Colors.blue,
   Color titleColor = AppColors.white,
-  double borderRadius = Global.borderRadius,
+  double borderRadius = 12,
   void Function()? onPressed,
   required RxBool isLoading,
 }) {

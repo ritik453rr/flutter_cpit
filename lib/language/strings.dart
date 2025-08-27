@@ -15,6 +15,8 @@ class Strings {
 
   /// Home Page
   static const dashTitle = "dashTitle";
+    static var search="search";
+
 
   /// Settings Page
   static const settings = "settings";
@@ -28,4 +30,5 @@ class Strings {
   static const light = "light";
   static const sureToLogout = "sureToLogout";
   static const cancel = "cancel";
+
 }

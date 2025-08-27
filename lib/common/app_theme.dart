@@ -22,10 +22,15 @@ class AppTheme {
       brightness: Brightness.light,
       primaryColor: AppColors.ltSplash,
       cardColor: AppColors.ltTile,
-      dialogTheme: DialogThemeData(backgroundColor: AppColors.white),
+      dialogTheme: DialogThemeData(backgroundColor: AppColors.ltDialog),
       scaffoldBackgroundColor: AppColors.white,
       splashColor: Colors.transparent,
-      textSelectionTheme: TextSelectionThemeData(cursorColor: AppColors.black),
+      cardTheme: CardTheme(color: AppColors.ltCardColor),
+
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: AppColors.ltCursor,
+        selectionHandleColor: AppColors.ltSelectionHandle,
+      ),
       radioTheme: RadioThemeData(
         fillColor: MaterialStateProperty.all<Color>(AppColors.black),
       ),
@@ -50,32 +55,24 @@ class AppTheme {
 
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: AppColors.ltFillColor,
-        labelStyle: TextStyle(color: AppColors.ltTextFieldLabel),
-        errorStyle: CommonUi.customTextStyle(
-          color: AppColors.red,
-          fontSize: AppFontsize.font12,
-        ),
-        floatingLabelStyle: const TextStyle(color: AppColors.black),
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 14,
-        ),
+        fillColor: AppColors.ltFieldColor,
+        prefixIconColor: AppColors.ltFieldIcon,
+        hintStyle: TextStyle(color: AppColors.ltFieldHint),
+        labelStyle: TextStyle(color: AppColors.ltFieldLabel),
+        errorStyle: CommonUi.customTextStyle(color: AppColors.ltFieldErrorBord),
+        floatingLabelStyle: const TextStyle(color: AppColors.ltFloatingLabel),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.ltEnableBorder),
+          borderSide: BorderSide(color: AppColors.ltFieldEnableBorder),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.ltFocusBorder),
+          borderSide: BorderSide(color: AppColors.ltFieldFocusBorder),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.red),
+          borderSide: BorderSide(color: AppColors.ltFieldErrorBord),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.red, width: 2),
+          borderSide: BorderSide(color: AppColors.ltFieldErrorBord, width: 2),
         ),
       ),
     );
@@ -90,7 +87,11 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.black,
       splashFactory: InkRipple.splashFactory,
       splashColor: Colors.transparent,
-      textSelectionTheme: TextSelectionThemeData(cursorColor: AppColors.white),
+      cardTheme: CardTheme(color: AppColors.dtCardColor),
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: AppColors.dtCursor,
+        selectionHandleColor: AppColors.dtSelectionHandle,
+      ),
       dialogTheme: DialogThemeData(backgroundColor: AppColors.dtDialog),
       radioTheme: RadioThemeData(
         fillColor: MaterialStateProperty.all<Color>(AppColors.white),
@@ -117,30 +118,25 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         errorStyle: TextStyle(color: Colors.redAccent),
-        fillColor: AppColors.dtFillColor,
+        fillColor: AppColors.dtField,
+        hintStyle: TextStyle(color: AppColors.dtFieldHint),
         labelStyle: const TextStyle(color: Colors.white70),
         floatingLabelStyle: const TextStyle(color: Colors.white70),
+        prefixIconColor: AppColors.dtFieldIcon,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 14,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: AppColors.dtEnableBorder),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(
-            color: AppColors.dtFocusBorder,
-            width: 2,
-          ),
+          borderSide: const BorderSide(color: AppColors.dtEnableBorder),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: Colors.red),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: Colors.red, width: 2),
         ),
       ),
