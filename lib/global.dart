@@ -9,6 +9,11 @@ import 'package:url_launcher/url_launcher.dart';
 class Global {
   static const hzPadding = 20.0;
   static const fieldRadius = 12.0;
+  static const radius = 12.0;
+  static const tempImgUrl =
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkAJEkJQ1WumU0hXNpXdgBt9NUKc0QDVIiaw&s";
+  static const emptyImgUrl =
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8T0hZUoX8kuRi3EZpZbUDtZ_WqqN9Ll15Q&s";
 
   /// Opens a URL in the default web browser
   static void openLink(String url) {

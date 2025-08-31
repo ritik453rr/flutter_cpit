@@ -1,8 +1,5 @@
-import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/app_images.dart';
 import 'package:cpit/common/app_storage.dart';
-import 'package:cpit/common/app_theme.dart';
-import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/dialogs/language_dialog.dart';
 import 'package:cpit/dialogs/logout_dialog.dart';
 import 'package:cpit/dialogs/theme_dialog.dart';

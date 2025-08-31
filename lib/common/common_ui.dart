@@ -1,8 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cpit/common/app_colors.dart' show AppColors;
 import 'package:cpit/common/app_fonts.dart';
+import 'package:cpit/common/app_images.dart';
 import 'package:cpit/global.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shimmer/shimmer.dart';
 
 /// A utility class for setting common UI components like images and text styles.
 class CommonUi {
@@ -48,12 +51,14 @@ class CommonUi {
     return TextStyle(fontFamily: fontFamily, color: color, fontSize: fontSize);
   }
 
-
-/// Method to return round border decoration
-  static BoxDecoration roundDecoration({Color? color,double borderRadius=12}) {
+  /// Method to return round border decoration
+  static BoxDecoration roundDecoration({
+    Color? color,
+    double borderRadius = 12,
+  }) {
     return BoxDecoration(
       color: color,
-      borderRadius: BorderRadius.circular(borderRadius)
+      borderRadius: BorderRadius.circular(borderRadius),
     );
   }
 
@@ -61,7 +66,7 @@ class CommonUi {
   static Widget textButton({
     required String title,
     void Function()? onPressed,
-    double  borderRadius=12.0,
+    double borderRadius = 12.0,
   }) {
     return TextButton(
       style: TextButton.styleFrom(
@@ -100,5 +105,45 @@ class CommonUi {
       width: width,
       child: CircularProgressIndicator(color: color, strokeWidth: strokeWidth),
     );
+  }
+
+  /// Returns a BoxDecoration with rounded corners.
+  static BoxDecoration roundedDecoration({
+    Color? color,
+    double borderRadius = Global.radius,
+  }) {
+    return BoxDecoration(
+      color: color,
+      borderRadius: BorderRadius.circular(borderRadius),
+    );
+  }
+
+  /// Returns a widget that displays a network image with caching, placeholder, and error handling.
+  static networkImg({
+    required String imgUrl,
+    double height = 125,
+    double width = 125,
+    double borderRadius = Global.radius,
+  }) {
+    {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(borderRadius),
+        child: CachedNetworkImage(
+          imageUrl: imgUrl,
+          height: height,
+          width: width,
+          placeholder: (context, url) {
+            return Shimmer.fromColors(
+              baseColor: AppColors.shimmerBase,
+              highlightColor: AppColors.shimmerHighlight,
+              child: Container(color: Colors.white),
+            );
+          },
+          errorWidget: (context, url, error) {
+            return CommonUi.setPng(AppImages.pngEmptyProfile);
+          },
+        ),
+      );
+    }
   }
 }

@@ -5,6 +5,7 @@ class AppImages {
   /// PNGS
   static const pngCpit = "cpit_logo";
   static const pngLogin = "login";
+  static const pngEmptyProfile = "empty_profile";
 
   /// Icons.....
   

@@ -21,6 +21,10 @@ class AppLanguage extends Translations {
       /// Home Page
       Strings.dashTitle: "Cpit Education",
       Strings.search:"Search",
+      Strings.name:"Name",
+      Strings.id:"ID",
+      Strings.phone:"Phone",
+      Strings.add:"Add",
 
       /// Settings Page
       Strings.settings: "Settings",
@@ -50,6 +54,7 @@ class AppLanguage extends Translations {
 
       /// Home Page
       Strings.dashTitle: "सीपीआईटी शिक्षा",
+      Strings.search:"खोजें",
 
       /// Settings Page
       Strings.settings: "सेटिंग्स",

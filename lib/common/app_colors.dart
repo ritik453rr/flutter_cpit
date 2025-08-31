@@ -12,6 +12,13 @@ class AppColors {
   static const Color blue = Colors.blue;
   static const Color red = Colors.red;
   static const Color unselectIcon = Color.fromRGBO(204, 204, 204, 1);
+  static const Color shimmerBase = Color.fromRGBO(
+    160,
+    160,
+    160,
+    1.0,
+  ); // medium-dark grey
+  static const Color shimmerHighlight = Color.fromRGBO(200, 200, 200, 1.0);
 
   /// Dark Theme Colors
   static const Color dtEnableBorder = Colors.white38;
@@ -25,7 +32,9 @@ class AppColors {
   static const Color dtFieldHint = Colors.white54;
   static const Color dtCursor = AppColors.white;
   static Color dtSelectionHandle = Colors.grey[700]!;
-  static  Color dtCardColor = Colors.grey.shade900;
+  static Color dtCardColor = Colors.grey.shade900;
+  static Color dtFloatingBtnBg = Colors.grey[800]!;
+  static const dtFloatingBtnIcon = AppColors.white;
 
   ///Light Theme
   static Color ltFieldColor = Colors.grey.shade200;
@@ -43,4 +52,6 @@ class AppColors {
   static const ltSelectionHandle = AppColors.black;
   static const ltDialog = AppColors.white;
   static Color ltCardColor = Colors.grey.shade200;
+  static Color ltFloatingBtnBg = Colors.grey[500]!;
+  static const ltFloatingBtnIcon = AppColors.white;
 }

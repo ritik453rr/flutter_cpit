@@ -3,13 +3,15 @@ import 'package:cpit/common/custom_appbar.dart';
 import 'package:cpit/common/custom_textfield.dart';
 import 'package:cpit/global.dart';
 import 'package:cpit/language/strings.dart';
+import 'package:cpit/pages/dashboard/home/home_controller.dart';
+import 'package:cpit/pages/dashboard/home/home_widgets/home_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 /// A stateless widget that displays the Home screen with a custom app bar.
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-
+  HomeView({super.key});
+  final controller = Get.find<HomeController>();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,6 +24,12 @@ class HomeView extends StatelessWidget {
           title: Strings.dashTitle.tr,
           centerTitle: false,
           actionIcon1: AppImages.iconFilter,
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            // controller.onTapFab();
+          },
+          child: Icon(Icons.add),
         ),
         body: Container(
           width: Get.width,
@@ -41,15 +49,10 @@ class HomeView extends StatelessWidget {
                   shrinkWrap: true,
                   padding: EdgeInsets.only(top: 10, bottom: 10),
                   itemBuilder: (context, index) {
-                    return Card(
-                      margin: EdgeInsets.only(bottom: 12),
-                      child: Container(
-                        width: Get.width,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
+                    return userCard(
+                      onTap: () {
+                        controller.onTapItem(index);
+                      },
                     );
                   },
                 ),

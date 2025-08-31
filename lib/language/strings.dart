@@ -30,5 +30,9 @@ class Strings {
   static const light = "light";
   static const sureToLogout = "sureToLogout";
   static const cancel = "cancel";
+  static const name="name";
+  static const id="id";
+  static const phone="phone";
+  static const add="add";
 
 }

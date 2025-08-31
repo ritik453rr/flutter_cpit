@@ -25,6 +25,10 @@ class AppTheme {
       dialogTheme: DialogThemeData(backgroundColor: AppColors.ltDialog),
       scaffoldBackgroundColor: AppColors.white,
       splashColor: Colors.transparent,
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: AppColors.ltFloatingBtnBg,
+        foregroundColor: AppColors.ltFloatingBtnIcon,
+      ),
       cardTheme: CardTheme(color: AppColors.ltCardColor),
 
       textSelectionTheme: TextSelectionThemeData(
@@ -88,10 +92,15 @@ class AppTheme {
       splashFactory: InkRipple.splashFactory,
       splashColor: Colors.transparent,
       cardTheme: CardTheme(color: AppColors.dtCardColor),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: AppColors.dtFloatingBtnBg,
+        foregroundColor: AppColors.dtFloatingBtnIcon,
+      ),
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: AppColors.dtCursor,
         selectionHandleColor: AppColors.dtSelectionHandle,
       ),
+
       dialogTheme: DialogThemeData(backgroundColor: AppColors.dtDialog),
       radioTheme: RadioThemeData(
         fillColor: MaterialStateProperty.all<Color>(AppColors.white),
