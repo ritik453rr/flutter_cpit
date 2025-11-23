@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 Widget customButton({
   double? height,
   double? width,
-  String title = "Title",
+  required String title,
   Color bgColor = Colors.blue,
   Color titleColor = AppColors.white,
   double borderRadius = 12,

@@ -7,6 +7,7 @@ import 'package:cpit/global.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:cpit/model/setting_model.dart';
 import 'package:cpit/routing/app_routes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -62,9 +63,11 @@ class SettingsController extends GetxController {
   }
 
   /// Handle logout
-  void logout() {
+  Future<void> logout() async{
     Get.offAllNamed(AppRoutes.login);
     AppStorage.setLoginStatus(status: false);
+    await FirebaseAuth.instance.signOut();
+    print("User logged out successfully.");
   }
 
   /// Handle on tap setting item

@@ -1,5 +1,4 @@
 import 'package:cpit/common/app_colors.dart';
-import 'package:cpit/common/app_fontsize.dart';
 import 'package:cpit/common/app_storage.dart';
 import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/common/restart_app.dart';
@@ -22,11 +21,20 @@ class AppTheme {
       brightness: Brightness.light,
       primaryColor: AppColors.ltSplash,
       cardColor: AppColors.ltTile,
+      indicatorColor: AppColors.black,
+      datePickerTheme: DatePickerThemeData(backgroundColor: AppColors.white),
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: AppColors.black,
+      ),
+      bottomSheetTheme: BottomSheetThemeData(backgroundColor: AppColors.white),
+      iconButtonTheme: IconButtonThemeData(
+        style: ButtonStyle(iconColor: WidgetStateProperty.all(AppColors.black)),
+      ),
       dialogTheme: DialogThemeData(backgroundColor: AppColors.ltDialog),
       scaffoldBackgroundColor: AppColors.white,
       splashColor: Colors.transparent,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: AppColors.ltFloatingBtnBg,
+        backgroundColor: AppColors.nuetralGray,
         foregroundColor: AppColors.ltFloatingBtnIcon,
       ),
       cardTheme: CardTheme(color: AppColors.ltCardColor),
@@ -75,7 +83,6 @@ class AppTheme {
           borderSide: BorderSide(color: AppColors.ltFieldErrorBord),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: AppColors.ltFieldErrorBord, width: 2),
         ),
       ),
@@ -88,10 +95,21 @@ class AppTheme {
       brightness: Brightness.dark,
       cardColor: AppColors.dtTile,
       primaryColor: AppColors.dtSplash,
+      indicatorColor: AppColors.black,
       scaffoldBackgroundColor: AppColors.black,
       splashFactory: InkRipple.splashFactory,
       splashColor: Colors.transparent,
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: AppColors.white,
+      ),
+
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: AppColors.midNightGray,
+      ),
       cardTheme: CardTheme(color: AppColors.dtCardColor),
+      iconButtonTheme: IconButtonThemeData(
+        style: ButtonStyle(iconColor: WidgetStateProperty.all(AppColors.white)),
+      ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: AppColors.dtFloatingBtnBg,
         foregroundColor: AppColors.dtFloatingBtnIcon,
@@ -115,7 +133,7 @@ class AppTheme {
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: AppColors.black,
         selectedItemColor: AppColors.white,
-        unselectedItemColor: AppColors.dtUnselectNav,
+        unselectedItemColor: AppColors.midGray,
       ),
 
       textTheme: const TextTheme(

@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cpit/common/app_colors.dart' show AppColors;
+import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/app_images.dart';
 import 'package:cpit/global.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
 /// A utility class for setting common UI components like images and text styles.
@@ -119,11 +120,12 @@ class CommonUi {
   }
 
   /// Returns a widget that displays a network image with caching, placeholder, and error handling.
-  static networkImg({
+  static Widget networkImg({
     required String imgUrl,
     double height = 125,
     double width = 125,
     double borderRadius = Global.radius,
+    BoxFit fit = BoxFit.cover,
   }) {
     {
       return ClipRRect(
@@ -132,6 +134,7 @@ class CommonUi {
           imageUrl: imgUrl,
           height: height,
           width: width,
+          fit: fit,
           placeholder: (context, url) {
             return Shimmer.fromColors(
               baseColor: AppColors.shimmerBase,
@@ -140,10 +143,29 @@ class CommonUi {
             );
           },
           errorWidget: (context, url, error) {
-            return CommonUi.setPng(AppImages.pngEmptyProfile);
+            return CommonUi.setPng(
+              AppImages.pngEmptyProfile,
+              height: height,
+              width: width,
+              fit: fit,
+            );
           },
         ),
       );
     }
+  }
+
+  /// Displays a snackbar with a predefined message.
+  static SnackbarController snackbar({
+    required String title,
+    required String message,
+    Color color = AppColors.red,
+  }) {
+    return Get.snackbar(
+      title,
+      message,
+      backgroundColor: color,
+      colorText: AppColors.white,
+    );
   }
 }

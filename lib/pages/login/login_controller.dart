@@ -1,7 +1,10 @@
+import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_storage.dart';
+import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/global.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:cpit/routing/app_routes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -22,7 +25,7 @@ class LoginController extends GetxController {
     if (email.isEmpty) {
       emailError.value = Strings.pleaseEnterEmail.tr;
       return false;
-    } 
+    }
     if (!Global.isValidEmail(email)) {
       emailError.value = Strings.enterValidEmail.tr;
       return false;
@@ -41,15 +44,28 @@ class LoginController extends GetxController {
   }
 
   /// Validates inputs and simulates a login process with a loading state.
-  void login() {
+  Future<void> login() async {
+    if (isLoading.value) return; // Prevent multiple login attempts
     if (validateEmail() && validatePass()) {
       Global.hideKeyBoard();
       isLoading.value = true;
-      Future.delayed(Duration(seconds: 2), () {
+      try {
+        final credential = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(
+              email: emailController.text.trim(),
+              password: passwordController.text.trim(),
+            );
         isLoading.value = false;
         AppStorage.setLoginStatus(status: true);
         Get.offAllNamed(AppRoutes.dashboard);
-      });
+      } on FirebaseAuthException catch (e) {
+        isLoading.value = false;
+        CommonUi.snackbar(
+          title: Strings.loginFailed.tr,
+          message: e.message ?? Strings.somethingWentWrong.tr,
+          color: AppColors.red,
+        );
+      }
     }
   }
 

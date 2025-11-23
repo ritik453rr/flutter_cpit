@@ -4,11 +4,12 @@ import 'package:cpit/common/app_fontsize.dart';
 import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/global.dart';
 import 'package:cpit/language/strings.dart';
+import 'package:cpit/model/student_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 /// A widget that displays user information in a card format.
-Widget userCard({void Function()? onTap}) {
+Widget userCard({required StudentModel student, void Function()? onTap}) {
   return Card(
     margin: EdgeInsets.only(bottom: 12),
     child: InkWell(
@@ -24,7 +25,7 @@ Widget userCard({void Function()? onTap}) {
         decoration: CommonUi.roundDecoration(),
         child: Row(
           children: [
-            CommonUi.networkImg(imgUrl: Global.tempImgUrl, borderRadius: 8),
+            CommonUi.networkImg(imgUrl: student.imgUrl, borderRadius: 8),
             SizedBox(width: 12),
             Expanded(
               child: Column(
@@ -32,15 +33,30 @@ Widget userCard({void Function()? onTap}) {
                 children: [
                   labelRow(
                     key: Strings.name.tr,
-                    value: "John Doe",
-                    color: AppColors.white,
+                    value: student.name,
                     fontFamily: AppFonts.medium,
                     fontSize: AppFontsize.font16,
                   ),
-                  labelRow(key: Strings.id.tr, value: "2112009"),
-                  labelRow(key: Strings.email.tr, value: "john@gmail.com"),
-                  labelRow(key: Strings.phone.tr, value: "+1234567890"),
-                  labelRow(key: Strings.add.tr, value: "Deoband,Saharanpur,UP"),
+                  labelRow(
+                    key: Strings.id.tr,
+                    value: student.id,
+                    color: AppColors.grey,
+                  ),
+                  labelRow(
+                    key: Strings.email.tr,
+                    value: student.email,
+                    color: AppColors.grey,
+                  ),
+                  labelRow(
+                    key: Strings.phone.tr,
+                    value: student.phone,
+                    color: AppColors.grey,
+                  ),
+                  labelRow(
+                    key: Strings.add.tr,
+                    value: student.address,
+                    color: AppColors.grey,
+                  ),
                 ],
               ),
             ),
@@ -57,7 +73,7 @@ Widget labelRow({
   required String value,
   bool isLast = false,
   double fontSize = AppFontsize.font14,
-  Color color = AppColors.grey,
+  Color? color,
   String fontFamily = AppFonts.regular,
 }) {
   return Padding(

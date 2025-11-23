@@ -33,7 +33,6 @@ class LoginView extends StatelessWidget {
                   Text(
                     Strings.splashTitle.tr,
                     style: CommonUi.customTextStyle(
-                      // color: AppColors.black,
                       fontFamily: AppFonts.medium,
                       fontSize: 28,
                     ),

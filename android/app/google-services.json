@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "903859385378",
+    "project_id": "cpit-education",
+    "storage_bucket": "cpit-education.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903859385378:android:41620c3211f8a14e3d867b",
+        "android_client_info": {
+          "package_name": "com.example.cpit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCYtk0qhOIoEiYbnOJnQZGkIa_dI8PIcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

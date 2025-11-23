@@ -3,7 +3,6 @@ import 'package:cpit/common/app_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 /// Global utility class for common functions
 class Global {
@@ -12,13 +11,9 @@ class Global {
   static const radius = 12.0;
   static const tempImgUrl =
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkAJEkJQ1WumU0hXNpXdgBt9NUKc0QDVIiaw&s";
-  static const emptyImgUrl =
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8T0hZUoX8kuRi3EZpZbUDtZ_WqqN9Ll15Q&s";
 
-  /// Opens a URL in the default web browser
-  static void openLink(String url) {
-    launchUrl(Uri.parse(url));
-  }
+  static const pdfUrl =
+      "https://www.ecma-international.org/wp-content/uploads/ECMA-262_12th_edition_june_2021.pdf";
 
   /// Opens a URL in the default web browser with a fallback
   static void hapticFeedback() {

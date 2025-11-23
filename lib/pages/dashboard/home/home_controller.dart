@@ -1,111 +1,68 @@
 // import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
-import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
+
+import 'package:cpit/global.dart';
+import 'package:cpit/model/student_model.dart';
+import 'package:cpit/routing/app_routes.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+// import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 /// Controller for managing the state and logic of the Home view.
 class HomeController extends GetxController {
-  // late PDFDocument pdfDoc;
-  var pdfLoading = true.obs;
-  var selectedIndex = 0.obs;
-  PDFViewController? pdfViewController;
-  int currentPage = 0;
-  int totalPages = 0;
+  /// Controllers
+  var refreshCtr = RefreshController();
+  var serchCtr = TextEditingController();
+
+  /// Variables
+  var loading = true.obs;
+
+  /// Lists
+  var allStudents = <StudentModel>[].obs;
+  var filteredStudents = <StudentModel>[].obs;
 
   @override
   void onInit() {
     super.onInit();
-    // l
-    //
-    //
-    // oadPdf();
+    ever(allStudents, (_) {
+      // Only update if no active search filter
+      if (serchCtr.text.trim().isEmpty) {
+        filteredStudents.assignAll(allStudents);
+      }
+    });
+    Future.delayed(Duration(seconds: 2), () {
+      filteredStudents.assignAll(allStudents);
+      loading.value = false;
+    });
   }
 
-//   void nextPage() {
-//     if (pdfViewController != null && currentPage < totalPages - 1) {
-//       currentPage++;
-// Future.delayed(Duration(milliseconds: 100), () {
-//   pdfViewController?.setPage(currentPage + 1);
-// });
-
-      
-//     }
-//   }
-
-//   void previousPage() {
-//     if (pdfViewController != null && currentPage > 0) {
-//       currentPage--;
-//       pdfViewController!.setPage(currentPage);
-//     }
-//   }
-
- /// Handle item tap
+  /// Handle item tap event
   void onTapItem(int index) {
-    // Get.dialog(
-    //   barrierDismissible: false,
-    //   Dialog(
-    //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
-    //     backgroundColor: Colors.transparent,
-    //     insetPadding: EdgeInsets.zero,
-    //     child: Container(
-    //       width: Get.width,
-    //       // padding: EdgeInsets.symmetric(horizontal: 20),
-    //       child: Column(
-    //         // mainAxisAlignment: MainAxisAlignment.center,
-    //         children: [
-    //           SizedBox(height: 100),
+    Global.hideKeyBoard();
+    Get.toNamed(AppRoutes.studentDetail, arguments: filteredStudents[index]);
+  }
 
-    //           Container(
-    //             height: 520,
-    //             width: Get.width,
-    //             child: PDF(
-    //               swipeHorizontal: true,
-    //               // autoSpacing: false,
-    //               // defaultPage: currentPage,
-    //               // pageFling: false,
-    //               // enableSwipe: false,
-    //               // pageSnap: false,
-    //               // fitEachPage: false,
-    //               backgroundColor: Colors.transparent,
-    //               fitPolicy: FitPolicy.HEIGHT,
-    //               onViewCreated: (PDFViewController controller) {
-    //                 pdfViewController = controller;
-    //               },
-    //               onError: (error) {
-    //                 print(error.toString());
-    //               },
-    //               onPageError:
-    //                   (page, error) => print('$page: ${error.toString()}'),
-    //               onPageChanged: (a, b) {
-    //                 currentPage = a ?? 0;
-    //                 totalPages = b ?? 0;
-    //               },
-    //             ).cachedFromUrl(
-    //               'https://www.ecma-international.org/wp-content/uploads/ECMA-262_12th_edition_june_2021.pdf',
-    //             ),
-    //           ),
+  /// Handle onTap floating button
+  void onTapFloating() {
+    Get.toNamed(AppRoutes.addStudent);
+  }
 
-    //           TextButton(
-    //             onPressed: () {
-    //               nextPage();
-    //             },
-    //             child: Text(
-    //               'increase',
-    //               style: TextStyle(color: Colors.white, fontSize: 18),
-    //             ),
-    //           ),
-    //           TextButton(
-    //             onPressed: () {
-    //               previousPage();
-    //             },
-    //             child: Text(
-    //               'Decrease',
-    //               style: TextStyle(color: Colors.white, fontSize: 18),
-    //             ),
-    //           ),
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // );
+  /// Method to search student
+  void searchStudent(String val) {
+    if (val.isEmpty) {
+      filteredStudents.assignAll(allStudents);
+    } else {
+      // filteredStudents.clear();
+      filteredStudents.assignAll(
+        allStudents
+            .where(
+              (student) =>
+                  student.name.toLowerCase().contains(val.toLowerCase()) ||
+                  student.id.toLowerCase().contains(val.toLowerCase()),
+            )
+            .toList(),
+      );
+    }
+    update();
   }
 }

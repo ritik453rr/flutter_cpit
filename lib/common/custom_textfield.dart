@@ -24,11 +24,13 @@ Widget customTextField({
   double errorFontSize = AppFontsize.font12,
   double contentHzPadding = 16,
   double contentVtPadding = 14,
+  TextCapitalization textCapitalization = TextCapitalization.none,
+  IconData? suffixIcon,
 }) {
   return TextField(
     controller: controller,
     onChanged: onChanged,
-  
+    textCapitalization: textCapitalization,
 
     onTap: () {
       Global.hapticFeedback();
@@ -42,8 +44,9 @@ Widget customTextField({
     decoration: InputDecoration(
       fillColor: fillColor,
       errorText: errorText,
-
       hintText: hintText,
+      suffixIcon: Icon(suffixIcon),
+
       contentPadding: EdgeInsets.symmetric(
         horizontal: contentHzPadding,
         vertical: contentVtPadding,
