@@ -1,6 +1,6 @@
 import 'package:cpit/common/app_fontsize.dart';
 import 'package:cpit/common/common_ui.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -17,7 +17,7 @@ Widget customTextField({
   TextInputAction textInputAction = TextInputAction.next,
   bool readOnly = false,
   void Function()? onTap,
-  double fieldRadius = Global.fieldRadius,
+  double fieldRadius = AppConstants.fieldRadius,
   bool hideBorder = false,
   IconData? prefixIcon,
   String? hintText,
@@ -33,7 +33,7 @@ Widget customTextField({
     textCapitalization: textCapitalization,
 
     onTap: () {
-      Global.hapticFeedback();
+      AppConstants.hapticFeedback();
       onTap?.call();
     },
     keyboardType: keyboardType,

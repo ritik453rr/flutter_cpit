@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/app_images.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -81,7 +81,7 @@ class CommonUi {
         surfaceTintColor: Colors.grey.withValues(alpha: 0.1),
       ),
       onPressed: () {
-        Global.hapticFeedback();
+        AppConstants.hapticFeedback();
         onPressed?.call();
       },
       child: Text(
@@ -111,7 +111,7 @@ class CommonUi {
   /// Returns a BoxDecoration with rounded corners.
   static BoxDecoration roundedDecoration({
     Color? color,
-    double borderRadius = Global.radius,
+    double borderRadius = AppConstants.radius,
   }) {
     return BoxDecoration(
       color: color,
@@ -124,7 +124,7 @@ class CommonUi {
     required String imgUrl,
     double height = 125,
     double width = 125,
-    double borderRadius = Global.radius,
+    double borderRadius = AppConstants.radius,
     BoxFit fit = BoxFit.cover,
   }) {
     {

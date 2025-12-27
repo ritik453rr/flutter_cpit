@@ -1,4 +1,4 @@
-import 'package:cpit/pages/dashboard/add_student/add_student_controller.dart';
+import 'package:cpit/pages/add_student/add_student_controller.dart';
 import 'package:get/get.dart';
 
 class AddStudentBinding extends Bindings {

@@ -1,4 +1,4 @@
-import 'package:cpit/pages/dashboard/home/home_controller.dart';
+import 'package:cpit/pages/home/controller/home_controller.dart';
 import 'package:get/get.dart';
 
 /// Sets up dependency injection for the Home module using GetX.

@@ -2,7 +2,7 @@ import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/common/custom_button.dart';
 import 'package:cpit/common/custom_textfield.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:cpit/pages/login/login_controller.dart';
 import 'package:flutter/material.dart';
@@ -18,14 +18,14 @@ class LoginView extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        Global.hideKeyBoard();
+        AppConstants.hideKeyBoard();
       },
 
       child: Scaffold(
         body: SafeArea(
           child: Container(
             height: Get.height,
-            padding: EdgeInsets.symmetric(horizontal: Global.hzPadding),
+            padding: EdgeInsets.symmetric(horizontal: AppConstants.hzPadding),
             child: SingleChildScrollView(
               child: Column(
                 children: [

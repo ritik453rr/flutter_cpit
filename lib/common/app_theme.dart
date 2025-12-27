@@ -2,7 +2,7 @@ import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_storage.dart';
 import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/common/restart_app.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 class AppTheme {
   /// Method to change app theme.
   static void changeTheme({required bool isDark}) {
-    Global.setSafeArea(isDark: isDark);
+    AppConstants.setSafeArea(isDark: isDark);
     AppStorage.setThemeMode(isDark: isDark);
     RestartApp.restartApp(Get.context!);
   }

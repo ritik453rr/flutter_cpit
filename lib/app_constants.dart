@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 /// Global utility class for common functions
-class Global {
+class AppConstants {
   static const hzPadding = 20.0;
   static const fieldRadius = 12.0;
   static const radius = 12.0;

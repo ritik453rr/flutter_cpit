@@ -3,7 +3,7 @@ import 'package:cpit/common/app_storage.dart';
 import 'package:cpit/dialogs/language_dialog.dart';
 import 'package:cpit/dialogs/logout_dialog.dart';
 import 'package:cpit/dialogs/theme_dialog.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:cpit/model/setting_model.dart';
 import 'package:cpit/routing/app_routes.dart';
@@ -63,7 +63,7 @@ class SettingsController extends GetxController {
   }
 
   /// Handle logout
-  Future<void> logout() async{
+  Future<void> logout() async {
     Get.offAllNamed(AppRoutes.login);
     AppStorage.setLoginStatus(status: false);
     await FirebaseAuth.instance.signOut();
@@ -79,11 +79,11 @@ class SettingsController extends GetxController {
           onValuePicked: (language) {
             switch (language.isoCode) {
               case 'hi':
-                Global.updateLocal(langCode: "hi", countryCode: "IN");
+                AppConstants.updateLocal(langCode: "hi", countryCode: "IN");
                 selectedLangCode.value = language.isoCode;
                 break;
               case 'en':
-                Global.updateLocal(langCode: "en", countryCode: "US");
+                AppConstants.updateLocal(langCode: "en", countryCode: "US");
                 selectedLangCode.value = language.isoCode;
                 break;
             }

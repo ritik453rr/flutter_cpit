@@ -1,13 +1,13 @@
 import 'dart:io';
+import 'package:cpit/bottomsheet/upload_img_sheet.dart';
 import 'package:cpit/common/app_colors.dart';
-import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/dialogs/camera_dialog.dart';
 import 'package:cpit/dialogs/gallery_dialog.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:cpit/model/student_model.dart';
-import 'package:cpit/pages/dashboard/home/home_controller.dart';
+import 'package:cpit/pages/home/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -33,86 +33,32 @@ class AddStudentController extends GetxController {
 
   /// Method to show bottom sheet for image upload options
   void uploadImg() {
-    Global.hapticFeedback();
-    Get.bottomSheet(
-      backgroundColor: Theme.of(Get.context!).bottomSheetTheme.backgroundColor,
-      SafeArea(
-        child: IntrinsicHeight(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: Column(
-              children: [
-                // Camera option
-                Container(
-                  width: 50,
-                  height: 5,
-                  decoration: BoxDecoration(
-                    color: AppColors.grey.withValues(alpha: 0.5),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                InkWell(
-                  onTap: () async {
-                    Global.hapticFeedback();
-                    if (await Permission.camera.isGranted) {
-                      pickImage(source: ImageSource.camera);
-                    } else if (await Permission.camera.isPermanentlyDenied) {
-                      cameraDialog();
-                    } else {
-                      await Permission.camera.request();
-                    }
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 10, bottom: 5),
-                    child: Row(
-                      children: [
-                        Icon(Icons.camera, size: 28),
-                        SizedBox(width: 8),
-                        Text(
-                          Strings.camera.tr,
-                          style: CommonUi.customTextStyle(
-                            fontSize: 16,
-                            fontFamily: AppFonts.regular,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10),
-                InkWell(
-                  onTap: () async {
-                    Global.hapticFeedback();
-                    if (await Permission.photos.isGranted) {
-                      pickImage(source: ImageSource.gallery);
-                    } else if (await Permission.photos.isPermanentlyDenied) {
-                      galleryDialog();
-                    } else {
-                      await Permission.photos.request();
-                    }
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 5, bottom: 10),
-                    child: Row(
-                      children: [
-                        Icon(Icons.image, size: 28),
-                        SizedBox(width: 8),
-                        Text(
-                          Strings.gallery.tr,
-                          style: CommonUi.customTextStyle(
-                            fontSize: 16,
-                            fontFamily: AppFonts.regular,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+    AppConstants.hapticFeedback();
+    uploadImgSheet(
+      onTapCamera: () async {
+        if (await Permission.camera.isGranted) {
+          pickImage(source: ImageSource.camera);
+        } else if (await Permission.camera.isPermanentlyDenied) {
+          cameraDialog();
+        } else {
+          final status = await Permission.camera.request();
+          if (status.isGranted) {
+            pickImage(source: ImageSource.camera);
+          }
+        }
+      },
+      onTapGallery: () async {
+        if (await Permission.photos.isGranted) {
+          pickImage(source: ImageSource.gallery);
+        } else if (await Permission.photos.isPermanentlyDenied) {
+          galleryDialog();
+        } else {
+          final status = await Permission.photos.request();
+          if (status.isGranted) {
+            pickImage(source: ImageSource.gallery);
+          }
+        }
+      },
     );
   }
 
@@ -132,7 +78,6 @@ class AddStudentController extends GetxController {
       var homeCtr = Get.find<HomeController>();
       isLoading.value = true;
       var num = homeCtr.filteredStudents.length + 1;
-
       homeCtr.allStudents.add(
         StudentModel(
           name: nameCtr.text.trim(),
@@ -228,7 +173,7 @@ class AddStudentController extends GetxController {
       return false;
     }
 
-    if (!Global.isValidEmail(email)) {
+    if (!AppConstants.isValidEmail(email)) {
       CommonUi.snackbar(
         title: Strings.invalidEmail.tr,
         message: Strings.pleaseEnterValidEmail.tr,

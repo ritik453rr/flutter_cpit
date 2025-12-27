@@ -3,10 +3,10 @@ import 'package:cpit/common/app_fontsize.dart';
 import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/common/custom_appbar.dart';
 import 'package:cpit/common/custom_button.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/language/strings.dart';
-import 'package:cpit/pages/dashboard/add_student/add_student_controller.dart';
-import 'package:cpit/pages/dashboard/add_student/add_student_widgets/add_students_widgets.dart';
+import 'package:cpit/pages/add_student/add_student_controller.dart';
+import 'package:cpit/pages/add_student/add_student_widgets/add_students_widgets.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
@@ -21,14 +21,16 @@ class AddStudentView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Global.hideKeyBoard();
+        AppConstants.hideKeyBoard();
         FocusManager.instance.primaryFocus?.unfocus();
       },
       child: Scaffold(
         appBar: customAppBar(title: Strings.addStudent.tr),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: Global.hzPadding),
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppConstants.hzPadding,
+            ),
             child: Column(
               children: [
                 Expanded(
@@ -271,6 +273,7 @@ class AddStudentView extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 /// Add Student Button
                 customButton(
                   isLoading: controller.isLoading,

@@ -2,7 +2,7 @@ import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/app_fontsize.dart';
 import 'package:cpit/common/common_ui.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:cpit/model/student_model.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +14,9 @@ Widget userCard({required StudentModel student, void Function()? onTap}) {
     margin: EdgeInsets.only(bottom: 12),
     child: InkWell(
       splashColor: Theme.of(Get.context!).primaryColor,
-      borderRadius: BorderRadius.circular(Global.radius),
+      borderRadius: BorderRadius.circular(AppConstants.radius),
       onTap: () {
-        Global.hapticFeedback();
+        AppConstants.hapticFeedback();
         onTap?.call();
       },
       child: Container(

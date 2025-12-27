@@ -1,10 +1,9 @@
 import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/app_fontsize.dart';
 import 'package:cpit/common/common_ui.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 
 /// Setting Widget to create setting item with tap effect color
 Widget settingItem({
@@ -23,7 +22,7 @@ Widget settingItem({
         splashColor: Theme.of(Get.context!).primaryColor,
         borderRadius: BorderRadius.circular(12),
         onTap: () {
-          Global.hapticFeedback();
+          AppConstants.hapticFeedback();
           onTap?.call();
         },
         child: Container(
@@ -49,4 +48,3 @@ Widget settingItem({
     ),
   );
 }
-

@@ -1,4 +1,4 @@
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,14 +13,14 @@ Future cameraDialog() {
       actions: [
         TextButton(
           onPressed: () {
-            Global.hapticFeedback();
+            AppConstants.hapticFeedback();
             Get.back();
           },
           child: Text(Strings.cancel.tr),
         ),
         TextButton(
           onPressed: () {
-            Global.hapticFeedback();
+            AppConstants.hapticFeedback();
             Get.back();
             openAppSettings();
           },

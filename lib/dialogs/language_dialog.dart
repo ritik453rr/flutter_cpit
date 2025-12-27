@@ -1,4 +1,4 @@
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,7 +31,7 @@ Future languageDialog({
                 highlightColor: Colors.transparent,
               ),
               onPressed: () {
-                Global.hapticFeedback();
+                AppConstants.hapticFeedback();
                 Get.back();
               },
               icon: Icon(Icons.close),
@@ -39,7 +39,7 @@ Future languageDialog({
           ],
         ),
         onValuePicked: (Language language) {
-          Global.hapticFeedback();
+          AppConstants.hapticFeedback();
           onValuePicked?.call(language);
         },
         itemBuilder: (language) {

@@ -1,8 +1,8 @@
 import 'package:cpit/common/custom_appbar.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/language/strings.dart';
-import 'package:cpit/pages/dashboard/settings/settings_controller.dart';
-import 'package:cpit/pages/dashboard/settings/widgets/settings_widgets.dart';
+import 'package:cpit/pages/settings/settings_controller.dart';
+import 'package:cpit/pages/settings/widgets/settings_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +17,7 @@ class SettingsView extends StatelessWidget {
 
       body: ListView.builder(
         padding: EdgeInsets.symmetric(
-          horizontal:Global.hzPadding,
+          horizontal: AppConstants.hzPadding,
           vertical: 30,
         ),
         itemCount: controller.settings.length,

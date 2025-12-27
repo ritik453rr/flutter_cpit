@@ -4,7 +4,7 @@ import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/app_theme.dart';
 import 'package:cpit/common/common_ui.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,7 +31,7 @@ PreferredSizeWidget? customAppBar({
               ),
             ),
     centerTitle: centerTitle,
-    actionsPadding: EdgeInsets.only(right: Global.hzPadding),
+    actionsPadding: EdgeInsets.only(right: AppConstants.hzPadding),
     shape:
         !showBottomBorder
             ? null
@@ -55,7 +55,7 @@ PreferredSizeWidget? customAppBar({
             visualDensity: VisualDensity.compact,
             padding: EdgeInsets.zero,
             onPressed: () {
-              Global.hapticFeedback();
+              AppConstants.hapticFeedback();
               onTapAction1?.call();
             },
 

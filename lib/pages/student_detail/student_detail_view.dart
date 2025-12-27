@@ -1,9 +1,9 @@
 import 'package:cpit/common/common_ui.dart';
 import 'package:cpit/common/custom_appbar.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/language/strings.dart';
-import 'package:cpit/pages/dashboard/student_detail/student_detail_controller.dart';
-import 'package:cpit/pages/dashboard/student_detail/widgets/student_detail_widget.dart';
+import 'package:cpit/pages/student_detail/student_detail_controller.dart';
+import 'package:cpit/pages/student_detail/widgets/student_detail_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +18,9 @@ class StudentDetailView extends StatelessWidget {
       appBar: customAppBar(title: Strings.studentDetail.tr),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: Global.hzPadding),
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppConstants.hzPadding,
+          ),
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: Column(

@@ -1,7 +1,7 @@
 import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/common_ui.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,7 +25,7 @@ logoutDialog({required VoidCallback onConfirm}) {
           actions: [
             TextButton(
               onPressed: () {
-                Global.hapticFeedback();
+                AppConstants.hapticFeedback();
                 Get.back();
               },
 
@@ -39,7 +39,7 @@ logoutDialog({required VoidCallback onConfirm}) {
             ),
             TextButton(
               onPressed: () {
-                Global.hapticFeedback();
+                AppConstants.hapticFeedback();
                 Get.back();
                 onConfirm();
               },

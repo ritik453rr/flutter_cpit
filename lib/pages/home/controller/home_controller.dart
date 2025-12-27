@@ -1,6 +1,6 @@
 // import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
 
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/model/student_model.dart';
 import 'package:cpit/routing/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -38,12 +38,12 @@ class HomeController extends GetxController {
 
   /// Handle item tap event
   void onTapItem(int index) {
-    Global.hideKeyBoard();
+    AppConstants.hideKeyBoard();
     Get.toNamed(AppRoutes.studentDetail, arguments: filteredStudents[index]);
   }
 
   /// Handle onTap floating button
-  void onTapFloating() {
+  void addStudent() {
     Get.toNamed(AppRoutes.addStudent);
   }
 

@@ -2,7 +2,7 @@ import 'package:cpit/common/app_fonts.dart';
 import 'package:cpit/common/app_fontsize.dart';
 import 'package:cpit/common/app_theme.dart';
 import 'package:cpit/common/common_ui.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,7 +11,7 @@ import 'package:get/get.dart';
 Future themeDialog({required RxInt themeIndex}) {
   return Get.dialog(
     Dialog(
-      insetPadding: EdgeInsets.symmetric(horizontal: Global.hzPadding),
+      insetPadding: EdgeInsets.symmetric(horizontal: AppConstants.hzPadding),
       backgroundColor: Theme.of(Get.context!).dialogTheme.backgroundColor,
       child: Wrap(
         children: [
@@ -34,7 +34,7 @@ Future themeDialog({required RxInt themeIndex}) {
                     groupValue: themeIndex.value,
                     onChanged: (value) {
                       if (value != null) {
-                        Global.hapticFeedback();
+                        AppConstants.hapticFeedback();
                         Get.back();
                         AppTheme.changeTheme(isDark: true);
                         themeIndex.value = value;
@@ -56,7 +56,7 @@ Future themeDialog({required RxInt themeIndex}) {
                     groupValue: themeIndex.value,
                     onChanged: (value) {
                       if (value != null) {
-                        Global.hapticFeedback();
+                        AppConstants.hapticFeedback();
                         Get.back();
                         AppTheme.changeTheme(isDark: false);
                         themeIndex.value = value;

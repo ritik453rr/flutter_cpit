@@ -1,9 +1,9 @@
 import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_images.dart';
-import 'package:cpit/pages/dashboard/dashboard_main/dashboard_controller.dart';
-import 'package:cpit/pages/dashboard/dashboard_main/widgets/dashboard_widgets.dart';
-import 'package:cpit/pages/dashboard/home/home_view.dart';
-import 'package:cpit/pages/dashboard/settings/settings_view.dart';
+import 'package:cpit/pages/dashboard/controller/dashboard_controller.dart';
+import 'package:cpit/pages/dashboard/widgets/dashboard_widgets.dart';
+import 'package:cpit/pages/home/view/home_view.dart';
+import 'package:cpit/pages/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

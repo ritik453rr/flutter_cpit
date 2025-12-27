@@ -1,7 +1,7 @@
 import 'package:cpit/common/app_colors.dart';
 import 'package:cpit/common/app_storage.dart';
 import 'package:cpit/common/common_ui.dart';
-import 'package:cpit/global.dart';
+import 'package:cpit/app_constants.dart';
 import 'package:cpit/language/strings.dart';
 import 'package:cpit/routing/app_routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -26,7 +26,7 @@ class LoginController extends GetxController {
       emailError.value = Strings.pleaseEnterEmail.tr;
       return false;
     }
-    if (!Global.isValidEmail(email)) {
+    if (!AppConstants.isValidEmail(email)) {
       emailError.value = Strings.enterValidEmail.tr;
       return false;
     }
@@ -47,7 +47,7 @@ class LoginController extends GetxController {
   Future<void> login() async {
     if (isLoading.value) return; // Prevent multiple login attempts
     if (validateEmail() && validatePass()) {
-      Global.hideKeyBoard();
+      AppConstants.hideKeyBoard();
       isLoading.value = true;
       try {
         final credential = await FirebaseAuth.instance
