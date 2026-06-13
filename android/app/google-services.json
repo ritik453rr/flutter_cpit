@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:903859385378:android:41620c3211f8a14e3d867b",
+        "mobilesdk_app_id": "1:903859385378:android:ec326e8335b097e43d867b",
         "android_client_info": {
-          "package_name": "com.example.cpit"
+          "package_name": "com.cpit.app"
         }
       },
       "oauth_client": [],

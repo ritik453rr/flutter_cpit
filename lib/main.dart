@@ -2,6 +2,7 @@ import 'package:cpit/common/app_storage.dart';
 import 'package:cpit/common/app_theme.dart';
 import 'package:cpit/common/restart_app.dart';
 import 'package:cpit/app_constants.dart';
+import 'package:cpit/firebase_options.dart';
 import 'package:cpit/language/app_language.dart';
 import 'package:cpit/routing/app_pages.dart';
 import 'package:cpit/routing/app_routes.dart';
@@ -13,7 +14,11 @@ import 'package:get_storage/get_storage.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+
+    options: DefaultFirebaseOptions.currentPlatform,
+
+);
   AppConstants.setSafeArea(isDark: AppStorage.isDarkTheme());
   runApp(RestartApp(child: const MyApp()));
 }

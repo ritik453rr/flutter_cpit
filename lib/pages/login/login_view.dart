@@ -8,6 +8,8 @@ import 'package:cpit/pages/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../common/app_colors.dart';
+
 /// A stateless widget representing the login screen with input fields and login button.
 class LoginView extends StatelessWidget {
   LoginView({super.key});

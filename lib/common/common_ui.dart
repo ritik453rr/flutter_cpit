@@ -155,17 +155,35 @@ class CommonUi {
     }
   }
 
-  /// Displays a snackbar with a predefined message.
-  static SnackbarController snackbar({
+  static void snackbar({
     required String title,
     required String message,
     Color color = AppColors.red,
   }) {
-    return Get.snackbar(
-      title,
-      message,
-      backgroundColor: color,
-      colorText: AppColors.white,
+    final context = Get.context;
+
+    if (context == null) return;
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: color,
+      ),
     );
   }
+
+  /// Displays a snackbar with a predefined message.
+  // static SnackbarController snackbar({
+  //   required String title,
+  //   required String message,
+  //   Color color = AppColors.red,
+  // }) {
+  //   return Get.snackbar(
+  //     title,
+  //     message,
+  //     snackPosition: SnackPosition.TOP,
+  //     backgroundColor: color,
+  //     colorText: AppColors.white,
+  //   );
+  // }
 }

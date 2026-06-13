@@ -15,7 +15,7 @@ PreferredSizeWidget? customAppBar({
   IconData? actionIcon1,
   void Function()? onTapAction1,
   bool showBottomBorder = false,
-  bool showBackBtn = true,
+  bool showBackBtn =false,
 }) {
   return AppBar(
     automaticallyImplyLeading: false,
@@ -27,7 +27,7 @@ PreferredSizeWidget? customAppBar({
                 Get.back();
               },
               icon: Icon(
-                Platform.isIOS ? Icons.arrow_back_ios : Icons.arrow_back,
+                Icons.arrow_back_ios,
               ),
             ),
     centerTitle: centerTitle,

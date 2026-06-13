@@ -1,4 +1,4 @@
-package com.example.cpit
+package com.cpit.app
 
 import io.flutter.embedding.android.FlutterActivity
 

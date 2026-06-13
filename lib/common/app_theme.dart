@@ -37,7 +37,7 @@ class AppTheme {
         backgroundColor: AppColors.nuetralGray,
         foregroundColor: AppColors.ltFloatingBtnIcon,
       ),
-      cardTheme: CardTheme(color: AppColors.ltCardColor),
+      cardTheme: CardThemeData(color: AppColors.ltCardColor),
 
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: AppColors.ltCursor,
@@ -106,7 +106,7 @@ class AppTheme {
       bottomSheetTheme: BottomSheetThemeData(
         backgroundColor: AppColors.midNightGray,
       ),
-      cardTheme: CardTheme(color: AppColors.dtCardColor),
+      cardTheme: CardThemeData(color: AppColors.dtCardColor),
       iconButtonTheme: IconButtonThemeData(
         style: ButtonStyle(iconColor: WidgetStateProperty.all(AppColors.white)),
       ),
